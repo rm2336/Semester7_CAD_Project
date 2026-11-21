@@ -1,0 +1,58 @@
+openapi: 3.0.4
+info:
+  title: Cloud Application Development Project
+  description: ReST backend for a food recipe application.
+  version: 0.1
+
+servers:
+  - url: http://localhost
+
+paths:
+  /recipes:
+    get:
+      summary: Fetches a list of recipes.
+      responses:
+        '200':
+          description: OK
+
+    post:
+      summary: Adds to the recipe list.
+      responses:
+        '200':
+          description: OK
+
+    delete:
+      summary: Drops the entire list.
+      responses:
+        '200':
+          description: OK
+
+  /recipes/{recipeId}:
+    parameters:
+      - name: recipeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    
+    get:
+      summary: Retrieves an individual recipe.
+      responses:
+        '200':
+          description: OK
+    
+    patch:
+      summary: Updates a single recipe.
+      responses:
+        '200':
+          description: OK
+
+    delete:
+      summary: Removes the specified recipe from the database.
+      responses:
+        '200':
+          description: OK
+
+
+
